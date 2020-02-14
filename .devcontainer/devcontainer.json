@@ -15,13 +15,12 @@
 	"dbaeumer.vscode-eslint",
 	"dracula-theme.theme-dracula",
 	"pkief.material-icon-theme",
-	"ms-vscode-remote.vscode-remote-extensionpack"
 ],
   "settings": {
     // additional settings for VS Code configurations
     // You can copy paste them from `settings.json` of your workspace
     // Reference: https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations
-    "workbench.colorTheme": "Dracula2",
+    "workbench.colorTheme": "Dracula",
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
     "editor.fontSize": 14,
