@@ -1,0 +1,63 @@
+{
+  "name": "Node Mevizya",
+  "context": "..",
+  "dockerComposeFile": ["../docker-compose.yml"], // You need to point it your `docker-compose.yml` file with proper path.
+  // Uncomment the next line if you want to publish any ports.
+  "appPort": 3333,
+
+  // Uncomment the next line to run commands after the container is created.
+  // "postCreateCommand": "python --version",
+  "service": "base_project", // You must define which service you are going to use from docker compose.
+  "workspaceFolder": "/app", // path to your source inside docker file
+  "extensions": [
+	"naumovs.color-highlight",
+	"editorconfig.editorconfig",
+	"dbaeumer.vscode-eslint",
+	"dracula-theme.theme-dracula",
+	"pkief.material-icon-theme",
+	"ms-vscode-remote.vscode-remote-extensionpack"
+],
+  "settings": {
+    // additional settings for VS Code configurations
+    // You can copy paste them from `settings.json` of your workspace
+    // Reference: https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations
+    "workbench.colorTheme": "Dracula2",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "workbench.iconTheme": "material-icon-theme",
+  
+    // APlica linhas verticais para lembrar de quebrar linha em códigos muito grande
+    "editor.rulers": [80, 120],
+    "editor.renderLineHighlight": "gutter",
+    "editor.tabSize": 2,
+    "terminal.integrated.fontSize": 14,
+    "emmet.includeLanguages": {
+      "javascript": "javascriptreact"
+    },
+    "emmet.syntaxProfiles": {
+      "javascript": "jsx"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "editor.parameterHints.enabled": false,
+    "breadcrumbs.enabled": true,
+    "javascript.suggest.autoImports": false,
+  
+    // Configuração do Eslint
+    "[javascript]": {
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true 
+      }
+    },
+    "[javascriptreact]": {
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true 
+      }
+    },
+    "window.zoomLevel": -1,
+    "remote.extensionKind": {
+      "ms-azuretools.vscode-docker": "workspace"
+    }
+  
+  }
+}
