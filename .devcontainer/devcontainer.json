@@ -4,6 +4,8 @@
   "dockerComposeFile": ["../docker-compose.yml"], // You need to point it your `docker-compose.yml` file with proper path.
   // Uncomment the next line if you want to publish any ports.
   "appPort": 3333,
+  "shutdownAction": "stopCompose",
+  
 
   // Uncomment the next line to run commands after the container is created.
   // "postCreateCommand": "python --version",
