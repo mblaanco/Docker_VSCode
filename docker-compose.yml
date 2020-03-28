@@ -6,7 +6,7 @@ services:
       - 3333:3333
     #command: yarn sequelize db:migrate
     command: ["./wait-for-it/wait-for-it.sh", "postgres-compose:5432", "--", "yarn", "sequelize", "db:migrate"]
-    command: ["yarn", "start"]
+    command: ["yarn", "dev"]
     links:
       - postgres-compose
     depends_on:
