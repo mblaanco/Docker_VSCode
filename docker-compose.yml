@@ -7,7 +7,7 @@ services:
     #command: yarn sequelize db:migrate
     command: >
         bash -c "./wait-for-it/wait-for-it.sh postgres-compose:5432 -- yarn sequelize db:migrate
-        && yarn start"
+        && yarn dev"
     #command: ["yarn", "dev"]
     links:
       - postgres-compose
@@ -25,12 +25,26 @@ services:
     volumes:
       - ~/Documentos/PostGresSQL/postgres-data:/var/lib/postgresql/data
 
-  pgadmin-compose:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "gismarxev@gmail.com"
-      PGADMIN_DEFAULT_PASSWORD: "docker"
+  #pgadmin-compose:
+   # image: dpage/pgadmin4
+   # environment:
+    #  PGADMIN_DEFAULT_EMAIL: "gismarxev@gmail.com"
+     # PGADMIN_DEFAULT_PASSWORD: "docker"
+    #ports:
+    #  - "80:80"
+    #depends_on:
+    #  - postgres-compose
+
+    #Nginx Service
+  webserver:
+    image: nginx
+    restart: unless-stopped
+    tty: true
     ports:
       - "80:80"
-    depends_on:
-      - postgres-compose
+    volumes:
+      - ./www:/usr/share/nginx/html:ro
+     # - ./nginx/conf.d/:/etc/nginx/conf.d/
+
+   # networks:
+   # - app-network
