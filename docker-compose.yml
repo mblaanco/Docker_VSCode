@@ -13,7 +13,23 @@ services:
       - postgres-compose
     depends_on:
       - postgres-compose
-    
+
+  front:
+    image: muriloblancoflor/mevizyafront:latest
+    ports:
+      - 3000:3000
+    #command: yarn sequelize db:migrate
+    #command: >
+    #    bash -c "./wait-for-it/wait-for-it.sh postgres-compose:5432 -- yarn sequelize db:migrate
+    #    && yarn dev"
+    #command: ["yarn", "dev"]
+    links:
+      - base_project
+    depends_on:
+      - base_project
+    stdin_open: true
+    tty: true
+
   postgres-compose:
     image: mdillon/postgis
     ports:
